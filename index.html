@@ -4,29 +4,49 @@
     <style>
         #game-board {
             position: relative;
-            height: 300px;
-            width: 300px;
+            height: 600px;
+            width: 600px;
             border: 1px solid black;
+            margin: auto;
         }
         .dot {
             position: absolute;
-            height: 10px;
-            width: 10px;
+            height: 20px;
+            width: 20px;
             background-color: #000;
+        }
+        .control-btn {
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        #controls .horizontal {
+            display: flex;
         }
     </style>
 </head>
 <body>
     <div id="game-board"></div>
-    <button id="btn-up">UP</button>
-    <button id="btn-down">DOWN</button>
-    <button id="btn-left">LEFT</button>
-    <button id="btn-right">RIGHT</button>
+    <div id="controls">
+        <button id="btn-up" class="control-btn">UP</button>
+        <div class="horizontal">
+            <button id="btn-left" class="control-btn">LEFT</button>
+            <button id="btn-right" class="control-btn">RIGHT</button>
+        </div>
+        <button id="btn-down" class="control-btn">DOWN</button>
+    </div>
     <script>
-        var dotSize = 10;
-        var gameBoardSize = 300;
+        var dotSize = 20;
+        var gameBoardSize = 600;
         var direction = 'right';
-        var snake = [{ top: 150, left: 150 }];
+        var snake = [{ top: 300, left: 300 }];
         var apple = null;
 
         function updateSnake() {
@@ -54,7 +74,7 @@
             }
 
             if (head.left < 0 || head.right < 0 || head.left >= gameBoardSize || head.top >= gameBoardSize) {
-                snake = [{ top: 150, left: 150 }]; 
+                snake = [{ top: 300, left: 300 }]; 
                 direction = 'right';
             }
         }
